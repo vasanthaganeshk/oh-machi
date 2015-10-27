@@ -458,13 +458,12 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "translator1.l"
-#line 2 "translator1.l"
-    #include <bits/stdc++.h>
+#line 1 "translator0.l"
+#line 2 "translator0.l"
+    #include <iostream>
     using namespace std;
     #define YY_DECL extern "C" int yylex()
-    #include "ohmachi.tab.h"
-#line 468 "lex.yy.c"
+#line 467 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -673,9 +672,9 @@ YY_DECL
 		}
 
 	{
-#line 8 "translator1.l"
+#line 7 "translator0.l"
 
-#line 679 "lex.yy.c"
+#line 678 "lex.yy.c"
 
 	while ( 1 )		/* loops until end-of-file is reached */
 		{
@@ -735,50 +734,50 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 /* rule 1 can match eol */
 YY_RULE_SETUP
-#line 9 "translator1.l"
+#line 8 "translator0.l"
 ;
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 10 "translator1.l"
+#line 9 "translator0.l"
 ;
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 11 "translator1.l"
-{   yylval.fval = atof(yytext); return FLOAT;}
+#line 10 "translator0.l"
+{   cout<<"found a decimal: "<<yytext<<endl;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 12 "translator1.l"
-{   yylval.ival = atoi(yytext); return INT;}
+#line 11 "translator0.l"
+{   cout<<"found an integer: "<<yytext<<endl;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 13 "translator1.l"
-{   yylval.sval = yytext; return STRING;}
+#line 13 "translator0.l"
+{   cout<<"found a string: "<<yytext<<endl;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 14 "translator1.l"
-{   yylval.sval = yytext; return STRING;}
+#line 14 "translator0.l"
+{   cout<<"found a string: "<<yytext<<endl;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 15 "translator1.l"
-{   yylval.nval = yytext; return NSTRING;}
+#line 15 "translator0.l"
+{   cout<<"found a token: "<<yytext<<endl;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 16 "translator1.l"
-{   yylval.nval = yytext; return NSTRING;}
+#line 16 "translator0.l"
+{   cout<<"found a token: "<<yytext<<endl;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 17 "translator1.l"
+#line 17 "translator0.l"
 ECHO;
 	YY_BREAK
-#line 782 "lex.yy.c"
+#line 781 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1773,6 +1772,23 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 17 "translator1.l"
+#line 17 "translator0.l"
 
+
+
+int main(int argn, char *argc[]){
+	FILE *myfile = fopen(argc[1], "r");
+	if(!myfile){
+		cout<<"Opening file failed!"<<endl;
+		return 1;
+	}
+	yyin = myfile;
+    yylex();
+    return 0;
+}
+
+int yywrap(void)
+{
+    return 0;
+}
 

@@ -17,7 +17,33 @@
 %token <ival> INT
 %token <fval> FLOAT
 %token <sval> STRING
-%token <sval> IDENTTIFIER
+
+%token IDENTTIFIER
+%token ASSIGNMENTOP
+%token EOL
+%token OBRACEOP
+%token CBRACEOP
+%token COLONOP
+%token PLUSOP
+%token MINUSOP
+%token MULTOP
+%token DIVOP
+%token POWOP
+%token DOUBLEEQOP
+%token LESSTHANOP
+%token GREATERTHANOP
+%token LESSTHANOREQOP
+%token GREATERTHANOREQOP
+%token IFTOK
+%token ELIFTOK
+%token ELSETOK
+%token COMMENTOP
+%token WHILETOK
+%token DEFTOK
+%token IDENTIFIER
+%token INDENTTOK
+%token COMMAOP
+
 
 %%
 lines: /* empty */
@@ -26,15 +52,15 @@ lines: /* empty */
 
 line:
 	assignment EOL
-	| block COLONOP EOL
+	| block COLONOP EOL INDENTTOK lines
 	| COMMENTOP STRING EOL
 	;
 
 assignment:
-	TOK ASSIGNMENTOP expression
+	IDENTIFIER ASSIGNMENTOP expression
 
 expression:
-	TOK
+	IDENTIFIER
 	| expression
 	| OBRACEOP expression CBRACEOP
 	| expression PLUSOP expression
@@ -56,6 +82,10 @@ block:
 	| DEFTOK IDENTTIFIER OBRACEOP parameters CBRACEOP
 	| WHILETOK expression
 	;
+
+parameters:
+	IDENTIFIER
+	| IDENTTIFIER COMMAOP
 %%
 
 int main(int argc, char *argv[])

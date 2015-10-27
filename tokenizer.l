@@ -96,5 +96,5 @@ range								return RANGETOK;
 [0-9]+          					{   yylval.ival = atoi(yytext); return INTVAL;}
 \"[_a-zA-z0-9 ]*\"			        {   yylval.sval = yytext; return STRING;}
 \'[_a-zA-z0-9 ]*\'				    {   yylval.sval = yytext; return STRING;}
-[_a-zA-Z}?[_a-zA-z0-9]*             {   yylval.nval = yytext; return TOK;}
+[_a-zA-Z}?[_a-zA-z0-9]*             {   yylval.nval = yytext; return IDENTIFIER;}
 %%
