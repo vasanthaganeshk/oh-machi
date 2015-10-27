@@ -2,16 +2,99 @@
     #include <bits/stdc++.h>
     using namespace std;
     #define YY_DECL extern "C" int yylex()
-    #include "ohmachi.tab.h"
+    #include "pymachi.tab.h"
 %}
 
 %%
-\n 	            					;
+/*--------newline, spaces, intendation --------*/
+\n 	            					return EOL;
 [ ]+            					;
-[0-9]+\.[0-9]+  					{   yylval.fval = atof(yytext); return FLOAT;}
-[0-9]+          					{   yylval.ival = atoi(yytext); return INT;}
-['][a-zA-Z0-9 ]+[']                 {   yylval.sval = yytext; return STRING;}
-["][a-zA-Z0-9 ]+["]                 {   yylval.sval = yytext; return STRING;}
-[a-zA-Z0-9]+                        {   yylval.nval = yytext; return NSTRING;}
-[a-zA-Z0-9]+[-][a-zA-Z0-9]+         {   yylval.nval = yytext; return NSTRING;}
+\t 									return INDENTTOK;
+
+
+/*--------function--------*/
+def 								return DEFTOK;
+
+/*--------class*--------*/
+class 								return CLASSTOK;
+self								return SELFTOK;
+
+
+/*--------if-elif-else--------*/
+if 									return IFTOK;
+elif								return ELIFTOK;
+else								return ELSETOK;
+
+
+/*--------Input and output--------*/
+input								return INPUTTOK;
+print 								return PRINTTOK;
+format								return IOFORMATTOK;
+
+
+/*--------Type conversions--------*/
+list								return LISTTOK;
+set									return SETTOK;
+tuple								return TUPLETOK;
+float 								return FLOATTOK;
+int 								return INTTOK;
+
+
+/*--------Loops--------*/
+for 								return FORTOK;
+while								return WHILETOK;
+
+
+/*--------Import--------*/
+from 								return FROMTOK;
+Import								return IMPORTTOK;
+
+/*--------Error handling--------*/
+try 								return TRYTOK;
+exception							return EXCEPTIONTOK;
+exit 								return EXITTOK;
+
+
+/*--------Operators--------*/
+\+									return PLUSOP;
+\-									return MINUSOP;
+\.									return DOTOP;
+\[									return OSQBRACEOP;
+\]									return CSQBRACEOP;
+\(									return OBRACEOP;
+\)									return CBRACEOP;
+\*									return MULTOP;
+\**									return POWOP;
+\#									return COMMENTOP;
+\=									return ASSIGNMENTOP;
+\==									return DOUBLEEQOP;
+\/									return DIVOP;
+\<									return LESSTHANOP;
+\<=									return LESSTHANOREQOP;
+\>=									return GREATERTHANOREQOP;
+\>									return GREATERTHANOP;
+\:									return COLONOP;
+
+
+/*--------Logical operators--------*/
+and									return LOGICANDOP;
+or 									return LOGICOROP;
+not									return LOGICNOTOP;
+nand								return LOGICNANDOP;
+nor									return LOGICNOROP;
+xor									return LOGICXOROP;
+in 									return INTOK;
+True								return TRUEOP;
+False								return FALSEOP
+
+
+/**/
+range								return RANGETOK;
+
+
+[0-9]+\.[0-9]+  					{   yylval.fval = atof(yytext); return FLOATVAL;}
+[0-9]+          					{   yylval.ival = atoi(yytext); return INTVAL;}
+\"[_a-zA-z0-9 ]*\"			        {   yylval.sval = yytext; return STRING;}
+\'[_a-zA-z0-9 ]*\'				    {   yylval.sval = yytext; return STRING;}
+[_a-zA-Z}?[_a-zA-z0-9]*             {   yylval.nval = yytext; return TOK;}
 %%
