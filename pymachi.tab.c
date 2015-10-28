@@ -62,7 +62,7 @@
 
 
 /* Copy the first part of user declarations.  */
-#line 1 "ohmachi.y" /* yacc.c:339  */
+#line 1 "pymachi.y" /* yacc.c:339  */
 
 	#include <bits/stdc++.h>
 	using namespace std;
@@ -72,7 +72,7 @@
 
 	void yyerror(char const *s);
 
-#line 76 "ohmachi.tab.c" /* yacc.c:339  */
+#line 76 "pymachi.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -91,9 +91,9 @@
 #endif
 
 /* In a future release of Bison, this section will be replaced
-   by #include "ohmachi.tab.h".  */
-#ifndef YY_YY_OHMACHI_TAB_H_INCLUDED
-# define YY_YY_OHMACHI_TAB_H_INCLUDED
+   by #include "pymachi.tab.h".  */
+#ifndef YY_YY_PYMACHI_TAB_H_INCLUDED
+# define YY_YY_PYMACHI_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -108,9 +108,33 @@ extern int yydebug;
   enum yytokentype
   {
     INT = 258,
-    FLOAT = 259,
+    DECIMAL = 259,
     STRING = 260,
-    NSTRING = 261
+    ASSIGNMENTOP = 261,
+    EOL = 262,
+    OBRACEOP = 263,
+    CBRACEOP = 264,
+    COLONOP = 265,
+    PLUSOP = 266,
+    MINUSOP = 267,
+    MULTOP = 268,
+    DIVOP = 269,
+    POWOP = 270,
+    DOUBLEEQOP = 271,
+    LESSTHANOP = 272,
+    GREATERTHANOP = 273,
+    LESSTHANOREQOP = 274,
+    GREATERTHANOREQOP = 275,
+    IFTOK = 276,
+    ELIFTOK = 277,
+    ELSETOK = 278,
+    COMMENTOP = 279,
+    WHILETOK = 280,
+    DEFTOK = 281,
+    IDENTIFIER = 282,
+    INDENTTOK = 283,
+    COMMAOP = 284,
+    OUTDENTOP = 285
   };
 #endif
 
@@ -119,14 +143,13 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 11 "ohmachi.y" /* yacc.c:355  */
+#line 11 "pymachi.y" /* yacc.c:355  */
 
 	int ival;
 	float fval;
 	char *sval;
-	char *nval;
 
-#line 130 "ohmachi.tab.c" /* yacc.c:355  */
+#line 153 "pymachi.tab.c" /* yacc.c:355  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -139,11 +162,11 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-#endif /* !YY_YY_OHMACHI_TAB_H_INCLUDED  */
+#endif /* !YY_YY_PYMACHI_TAB_H_INCLUDED  */
 
 /* Copy the second part of user declarations.  */
 
-#line 147 "ohmachi.tab.c" /* yacc.c:358  */
+#line 170 "pymachi.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -383,23 +406,23 @@ union yyalloc
 #endif /* !YYCOPY_NEEDED */
 
 /* YYFINAL -- State number of the termination state.  */
-#define YYFINAL  9
+#define YYFINAL  2
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   7
+#define YYLAST   63
 
 /* YYNTOKENS -- Number of terminals.  */
-#define YYNTOKENS  7
+#define YYNTOKENS  31
 /* YYNNTS -- Number of nonterminals.  */
-#define YYNNTS  2
+#define YYNNTS  7
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  8
+#define YYNRULES  29
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  10
+#define YYNSTATES  58
 
 /* YYTRANSLATE[YYX] -- Symbol number corresponding to YYX as returned
    by yylex, with out-of-bounds checking.  */
 #define YYUNDEFTOK  2
-#define YYMAXUTOK   261
+#define YYMAXUTOK   285
 
 #define YYTRANSLATE(YYX)                                                \
   ((unsigned int) (YYX) <= YYMAXUTOK ? yytranslate[YYX] : YYUNDEFTOK)
@@ -434,14 +457,18 @@ static const yytype_uint8 yytranslate[] =
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
-       5,     6
+       5,     6,     7,     8,     9,    10,    11,    12,    13,    14,
+      15,    16,    17,    18,    19,    20,    21,    22,    23,    24,
+      25,    26,    27,    28,    29,    30
 };
 
 #if YYDEBUG
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    25,    25,    26,    27,    28,    29,    30,    31
+       0,    49,    49,    50,    54,    55,    56,    57,    61,    65,
+      66,    67,    68,    69,    73,    74,    75,    76,    77,    78,
+      79,    80,    81,    82,    83,    84,    85,    86,    90,    91
 };
 #endif
 
@@ -450,8 +477,13 @@ static const yytype_uint8 yyrline[] =
    First, the terminals, then, starting at YYNTOKENS, nonterminals.  */
 static const char *const yytname[] =
 {
-  "$end", "error", "$undefined", "INT", "FLOAT", "STRING", "NSTRING",
-  "$accept", "snazzle", YY_NULLPTR
+  "$end", "error", "$undefined", "INT", "DECIMAL", "STRING",
+  "ASSIGNMENTOP", "EOL", "OBRACEOP", "CBRACEOP", "COLONOP", "PLUSOP",
+  "MINUSOP", "MULTOP", "DIVOP", "POWOP", "DOUBLEEQOP", "LESSTHANOP",
+  "GREATERTHANOP", "LESSTHANOREQOP", "GREATERTHANOREQOP", "IFTOK",
+  "ELIFTOK", "ELSETOK", "COMMENTOP", "WHILETOK", "DEFTOK", "IDENTIFIER",
+  "INDENTTOK", "COMMAOP", "OUTDENTOP", "$accept", "lines", "line",
+  "assignment", "block", "expression", "parameters", YY_NULLPTR
 };
 #endif
 
@@ -460,14 +492,17 @@ static const char *const yytname[] =
    (internal) symbol number NUM (which must be that of a token).  */
 static const yytype_uint16 yytoknum[] =
 {
-       0,   256,   257,   258,   259,   260,   261
+       0,   256,   257,   258,   259,   260,   261,   262,   263,   264,
+     265,   266,   267,   268,   269,   270,   271,   272,   273,   274,
+     275,   276,   277,   278,   279,   280,   281,   282,   283,   284,
+     285
 };
 # endif
 
-#define YYPACT_NINF -4
+#define YYPACT_NINF -33
 
 #define yypact_value_is_default(Yystate) \
-  (!!((Yystate) == (-4)))
+  (!!((Yystate) == (-33)))
 
 #define YYTABLE_NINF -1
 
@@ -478,7 +513,12 @@ static const yytype_uint16 yytoknum[] =
      STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-      -3,    -3,    -3,    -3,    -4,     7,    -4,    -4,    -4,    -4
+     -33,    12,   -33,   -33,     5,     5,   -33,    -4,     5,   -25,
+      -2,    -1,     0,     1,   -33,   -33,   -33,   -33,    30,    30,
+       6,    30,    -3,     5,   -33,   -33,     7,     5,     5,     5,
+       5,     5,     5,     5,     5,     5,     5,   -33,   -12,    30,
+     -11,    30,    30,    30,    30,    30,    30,    30,    30,    30,
+      30,   -13,    11,   -33,   -33,   -33,    33,   -33
 };
 
   /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -486,19 +526,24 @@ static const yytype_int8 yypact[] =
      means the default is an error.  */
 static const yytype_uint8 yydefact[] =
 {
-       0,     5,     6,     7,     8,     0,     2,     3,     4,     1
+       2,     0,     1,     5,     0,     0,    11,     0,     0,     0,
+       0,     0,     0,     0,    15,    16,    17,    14,     9,    10,
+       0,    13,     0,     0,     3,     6,     0,     0,     0,     0,
+       0,     0,     0,     0,     0,     0,     0,     4,     0,     8,
+       0,    18,    19,    20,    21,    22,    23,    24,    25,    27,
+      26,    28,     0,     2,    29,    12,     0,     7
 };
 
   /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-      -4,     3
+     -33,   -32,   -33,   -33,   -33,    -5,   -33
 };
 
   /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-      -1,     5
+      -1,     1,    11,    12,    13,    18,    52
 };
 
   /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -506,31 +551,52 @@ static const yytype_int8 yydefgoto[] =
      number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_uint8 yytable[] =
 {
-       1,     2,     3,     4,     6,     7,     8,     9
+      19,    20,    22,    21,    23,    38,    24,    25,    14,    15,
+      16,    26,     2,    37,    40,    51,    54,    53,    39,     3,
+      55,    56,    41,    42,    43,    44,    45,    46,    47,    48,
+      49,    50,    17,     4,     5,     6,     7,     8,     9,    10,
+       3,    27,    28,    29,    30,    31,    32,    33,    34,    35,
+      36,     0,     0,     0,     4,     5,     6,     7,     8,     9,
+      10,     0,     0,    57
 };
 
-static const yytype_uint8 yycheck[] =
+static const yytype_int8 yycheck[] =
 {
-       3,     4,     5,     6,     1,     2,     3,     0
+       5,     5,    27,     8,     6,     8,     7,     7,     3,     4,
+       5,    10,     0,     7,     7,    27,    29,    28,    23,     7,
+       9,    53,    27,    28,    29,    30,    31,    32,    33,    34,
+      35,    36,    27,    21,    22,    23,    24,    25,    26,    27,
+       7,    11,    12,    13,    14,    15,    16,    17,    18,    19,
+      20,    -1,    -1,    -1,    21,    22,    23,    24,    25,    26,
+      27,    -1,    -1,    30
 };
 
   /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
      symbol of state STATE-NUM.  */
 static const yytype_uint8 yystos[] =
 {
-       0,     3,     4,     5,     6,     8,     8,     8,     8,     0
+       0,    32,     0,     7,    21,    22,    23,    24,    25,    26,
+      27,    33,    34,    35,     3,     4,     5,    27,    36,    36,
+       5,    36,    27,     6,     7,     7,    10,    11,    12,    13,
+      14,    15,    16,    17,    18,    19,    20,     7,     8,    36,
+       7,    36,    36,    36,    36,    36,    36,    36,    36,    36,
+      36,    27,    37,    28,    29,     9,    32,    30
 };
 
   /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
 static const yytype_uint8 yyr1[] =
 {
-       0,     7,     8,     8,     8,     8,     8,     8,     8
+       0,    31,    32,    32,    33,    33,    33,    33,    34,    35,
+      35,    35,    35,    35,    36,    36,    36,    36,    36,    36,
+      36,    36,    36,    36,    36,    36,    36,    36,    37,    37
 };
 
   /* YYR2[YYN] -- Number of symbols on the right hand side of rule YYN.  */
 static const yytype_uint8 yyr2[] =
 {
-       0,     2,     2,     2,     2,     1,     1,     1,     1
+       0,     2,     0,     3,     3,     1,     2,     6,     3,     2,
+       2,     1,     5,     2,     1,     1,     1,     1,     3,     3,
+       3,     3,     3,     3,     3,     3,     3,     3,     1,     2
 };
 
 
@@ -1206,50 +1272,8 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-        case 2:
-#line 25 "ohmachi.y" /* yacc.c:1646  */
-    {cout<<"bison found an int"<< (yyvsp[-1].ival) <<endl;}
-#line 1213 "ohmachi.tab.c" /* yacc.c:1646  */
-    break;
-
-  case 3:
-#line 26 "ohmachi.y" /* yacc.c:1646  */
-    {cout<<"bison found a float"<< (yyvsp[-1].fval) <<endl;}
-#line 1219 "ohmachi.tab.c" /* yacc.c:1646  */
-    break;
-
-  case 4:
-#line 27 "ohmachi.y" /* yacc.c:1646  */
-    {cout<<"bison found a string"<< (yyvsp[-1].sval) <<endl;}
-#line 1225 "ohmachi.tab.c" /* yacc.c:1646  */
-    break;
-
-  case 5:
-#line 28 "ohmachi.y" /* yacc.c:1646  */
-    {cout<<"bison found an int"<< (yyvsp[0].ival) <<endl;}
-#line 1231 "ohmachi.tab.c" /* yacc.c:1646  */
-    break;
-
-  case 6:
-#line 29 "ohmachi.y" /* yacc.c:1646  */
-    {cout<<"bison found a float"<< (yyvsp[0].fval) <<endl;}
-#line 1237 "ohmachi.tab.c" /* yacc.c:1646  */
-    break;
-
-  case 7:
-#line 30 "ohmachi.y" /* yacc.c:1646  */
-    {cout<<"bison found a string"<< (yyvsp[0].sval) <<endl;}
-#line 1243 "ohmachi.tab.c" /* yacc.c:1646  */
-    break;
-
-  case 8:
-#line 31 "ohmachi.y" /* yacc.c:1646  */
-    {cout<<"bison found a string"<<(yyvsp[0].nval)<<endl;}
-#line 1249 "ohmachi.tab.c" /* yacc.c:1646  */
-    break;
-
-
-#line 1253 "ohmachi.tab.c" /* yacc.c:1646  */
+      
+#line 1277 "pymachi.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1477,7 +1501,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 33 "ohmachi.y" /* yacc.c:1906  */
+#line 94 "pymachi.y" /* yacc.c:1906  */
 
 
 int main(int argc, char *argv[])
@@ -1493,12 +1517,11 @@ int main(int argc, char *argv[])
 		yyparse();
 
 	}while(!feof(yyin));
-	//myfile.close();
 	return 0;
 }
 
 void yyerror(char const *s){
-	cout<< "Oh-Machi parse error!"<<endl<<"Message: "<<endl;
+	cout<< "Py-machi parse error!" << endl << "Message: " << s << endl;
 	exit(1);
 }
 

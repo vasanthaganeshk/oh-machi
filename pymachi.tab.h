@@ -30,8 +30,8 @@
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
-#ifndef YY_YY_OHMACHI_TAB_H_INCLUDED
-# define YY_YY_OHMACHI_TAB_H_INCLUDED
+#ifndef YY_YY_PYMACHI_TAB_H_INCLUDED
+# define YY_YY_PYMACHI_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -46,9 +46,33 @@ extern int yydebug;
   enum yytokentype
   {
     INT = 258,
-    FLOAT = 259,
+    DECIMAL = 259,
     STRING = 260,
-    NSTRING = 261
+    ASSIGNMENTOP = 261,
+    EOL = 262,
+    OBRACEOP = 263,
+    CBRACEOP = 264,
+    COLONOP = 265,
+    PLUSOP = 266,
+    MINUSOP = 267,
+    MULTOP = 268,
+    DIVOP = 269,
+    POWOP = 270,
+    DOUBLEEQOP = 271,
+    LESSTHANOP = 272,
+    GREATERTHANOP = 273,
+    LESSTHANOREQOP = 274,
+    GREATERTHANOREQOP = 275,
+    IFTOK = 276,
+    ELIFTOK = 277,
+    ELSETOK = 278,
+    COMMENTOP = 279,
+    WHILETOK = 280,
+    DEFTOK = 281,
+    IDENTIFIER = 282,
+    INDENTTOK = 283,
+    COMMAOP = 284,
+    OUTDENTOP = 285
   };
 #endif
 
@@ -57,14 +81,13 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 11 "ohmachi.y" /* yacc.c:1909  */
+#line 11 "pymachi.y" /* yacc.c:1909  */
 
 	int ival;
 	float fval;
 	char *sval;
-	char *nval;
 
-#line 68 "ohmachi.tab.h" /* yacc.c:1909  */
+#line 91 "pymachi.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -77,4 +100,4 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-#endif /* !YY_YY_OHMACHI_TAB_H_INCLUDED  */
+#endif /* !YY_YY_PYMACHI_TAB_H_INCLUDED  */
