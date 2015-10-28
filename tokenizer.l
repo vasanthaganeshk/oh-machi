@@ -6,33 +6,33 @@
 %}
 
 %%
-/*--------newline, spaces, intendation --------*/
+		/*--------newline, spaces, intendation --------*/
 \n 	            					return EOL;
 [ ]+            					;
 \t 									return INDENTTOK;
 
 
-/*--------function--------*/
+		/*--------function--------*/
 def 								return DEFTOK;
 
-/*--------class*--------*/
+		/*--------class*--------*/
 class 								return CLASSTOK;
 self								return SELFTOK;
 
 
-/*--------if-elif-else--------*/
+		/*--------if-elif-else--------*/
 if 									return IFTOK;
 elif								return ELIFTOK;
 else								return ELSETOK;
 
 
-/*--------Input and output--------*/
+		/*--------Input and output--------*/
 input								return INPUTTOK;
 print 								return PRINTTOK;
 format								return IOFORMATTOK;
 
 
-/*--------Type conversions--------*/
+		/*--------Type conversions--------*/
 list								return LISTTOK;
 set									return SETTOK;
 tuple								return TUPLETOK;
@@ -40,22 +40,22 @@ float 								return FLOATTOK;
 int 								return INTTOK;
 
 
-/*--------Loops--------*/
+		/*--------Loops--------*/
 for 								return FORTOK;
 while								return WHILETOK;
 
 
-/*--------Import--------*/
+		/*--------Import--------*/
 from 								return FROMTOK;
 Import								return IMPORTTOK;
 
-/*--------Error handling--------*/
+		/*--------Error handling--------*/
 try 								return TRYTOK;
 exception							return EXCEPTIONTOK;
 exit 								return EXITTOK;
 
 
-/*--------Operators--------*/
+		/*--------Operators--------*/
 \+									return PLUSOP;
 \-									return MINUSOP;
 \.									return DOTOP;
@@ -76,7 +76,7 @@ exit 								return EXITTOK;
 \:									return COLONOP;
 
 
-/*--------Logical operators--------*/
+		/*--------Logical operators--------*/
 and									return LOGICANDOP;
 or 									return LOGICOROP;
 not									return LOGICNOTOP;
@@ -88,13 +88,13 @@ True								return TRUEOP;
 False								return FALSEOP
 
 
-/**/
+		/**/
 range								return RANGETOK;
 
 
-[0-9]+\.[0-9]+  					{   yylval.fval = atof(yytext); return FLOATVAL;}
-[0-9]+          					{   yylval.ival = atoi(yytext); return INTVAL;}
+[0-9]+\.[0-9]+  					{   yylval.fval = atof(yytext); return DECIMAL;}
+[0-9]+          					{   yylval.ival = atoi(yytext); return INT;}
 \"[_a-zA-z0-9 ]*\"			        {   yylval.sval = yytext; return STRING;}
 \'[_a-zA-z0-9 ]*\'				    {   yylval.sval = yytext; return STRING;}
-[_a-zA-Z}?[_a-zA-z0-9]*             {   yylval.nval = yytext; return IDENTIFIER;}
+[_a-zA-Z}?[_a-zA-z0-9]*             {   yylval.sval = yytext; return IDENTIFIER;}
 %%

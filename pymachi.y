@@ -43,6 +43,35 @@
 %token INDENTTOK
 %token COMMAOP
 %token OUTDENTOP
+%token RANGETOK
+%token CLASSTOK
+%token SELFTOK
+%token INPUTTOK
+%token PRINTTOK
+%token IOFORMATTOK
+%token LISTTOK
+%token SETTOK
+%token TUPLETOK
+%token INTTOK
+%token FLOATTOK
+%token FROMTOK
+%token FORTOK
+%token IMPORTTOK
+%token TRYTOK
+%token EXCEPTIONTOK
+%token EXITTOK
+%token DOTOP
+%token OSQBRACEOP
+%token CSQBRACEOP
+%token LOGICANDOP
+%token LOGICOROP
+%token LOGICNOTOP
+%token LOGICNANDOP
+%token LOGICNOROP
+%token LOGICXOROP
+%token INTOK
+%token TRUEOP
+%token FALSEOP
 
 
 %%
@@ -74,6 +103,8 @@ expression:
 	| INT
 	| DECIMAL
 	| STRING
+	| TRUEOP
+	| FALSEOP
 	| expression PLUSOP expression
 	| expression MINUSOP expression
 	| expression MULTOP expression

@@ -72,7 +72,36 @@ extern int yydebug;
     IDENTIFIER = 282,
     INDENTTOK = 283,
     COMMAOP = 284,
-    OUTDENTOP = 285
+    OUTDENTOP = 285,
+    RANGETOK = 286,
+    CLASSTOK = 287,
+    SELFTOK = 288,
+    INPUTTOK = 289,
+    PRINTTOK = 290,
+    IOFORMATTOK = 291,
+    LISTTOK = 292,
+    SETTOK = 293,
+    TUPLETOK = 294,
+    INTTOK = 295,
+    FLOATTOK = 296,
+    FROMTOK = 297,
+    FORTOK = 298,
+    IMPORTTOK = 299,
+    TRYTOK = 300,
+    EXCEPTIONTOK = 301,
+    EXITTOK = 302,
+    DOTOP = 303,
+    OSQBRACEOP = 304,
+    CSQBRACEOP = 305,
+    LOGICANDOP = 306,
+    LOGICOROP = 307,
+    LOGICNOTOP = 308,
+    LOGICNANDOP = 309,
+    LOGICNOROP = 310,
+    LOGICXOROP = 311,
+    INTOK = 312,
+    TRUEOP = 313,
+    FALSEOP = 314
   };
 #endif
 
@@ -87,7 +116,7 @@ union YYSTYPE
 	float fval;
 	char *sval;
 
-#line 91 "pymachi.tab.h" /* yacc.c:1909  */
+#line 120 "pymachi.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;
