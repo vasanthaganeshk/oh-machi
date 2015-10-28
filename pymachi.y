@@ -4,6 +4,7 @@
 	extern "C" int yylex();
 	extern "C" int yyparse();
 	extern "C" FILE *yyin;
+	extern int line_no;
 
 	void yyerror(char const *s);
 %}
@@ -75,7 +76,7 @@
 
 
 %%
-lines: /* empty */
+lines:
 	| lines line EOL
 	;
 
@@ -141,7 +142,8 @@ int main(int argc, char *argv[])
 }
 
 void yyerror(char const *s){
-	cout<< "Py-machi parse error!" << endl << "Message: " << s << endl;
+	printf("\033[1;31mError in line %d \033[0m\n", line_no);
+	cout<< "Message: " << s << endl;
 	exit(1);
 }
 

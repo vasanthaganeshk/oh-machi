@@ -69,10 +69,11 @@
 	extern "C" int yylex();
 	extern "C" int yyparse();
 	extern "C" FILE *yyin;
+	extern int line_no;
 
 	void yyerror(char const *s);
 
-#line 76 "pymachi.tab.c" /* yacc.c:339  */
+#line 77 "pymachi.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -172,13 +173,13 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 11 "pymachi.y" /* yacc.c:355  */
+#line 12 "pymachi.y" /* yacc.c:355  */
 
 	int ival;
 	float fval;
 	char *sval;
 
-#line 182 "pymachi.tab.c" /* yacc.c:355  */
+#line 183 "pymachi.tab.c" /* yacc.c:355  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -195,7 +196,7 @@ int yyparse (void);
 
 /* Copy the second part of user declarations.  */
 
-#line 199 "pymachi.tab.c" /* yacc.c:358  */
+#line 200 "pymachi.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -498,10 +499,10 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    78,    78,    79,    83,    84,    85,    86,    90,    94,
-      95,    96,    97,    98,   102,   103,   104,   105,   106,   107,
-     108,   109,   110,   111,   112,   113,   114,   115,   116,   117,
-     121,   122
+       0,    79,    79,    80,    84,    85,    86,    87,    91,    95,
+      96,    97,    98,    99,   103,   104,   105,   106,   107,   108,
+     109,   110,   111,   112,   113,   114,   115,   116,   117,   118,
+     122,   123
 };
 #endif
 
@@ -1315,7 +1316,7 @@ yyreduce:
   switch (yyn)
     {
       
-#line 1319 "pymachi.tab.c" /* yacc.c:1646  */
+#line 1320 "pymachi.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1543,7 +1544,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 125 "pymachi.y" /* yacc.c:1906  */
+#line 126 "pymachi.y" /* yacc.c:1906  */
 
 
 int main(int argc, char *argv[])
@@ -1563,7 +1564,8 @@ int main(int argc, char *argv[])
 }
 
 void yyerror(char const *s){
-	cout<< "Py-machi parse error!" << endl << "Message: " << s << endl;
+	printf("\033[1;31mError in line %d \033[0m\n", line_no);
+	cout<< "Message: " << s << endl;
 	exit(1);
 }
 

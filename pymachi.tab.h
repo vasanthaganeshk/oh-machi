@@ -110,7 +110,7 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 11 "pymachi.y" /* yacc.c:1909  */
+#line 12 "pymachi.y" /* yacc.c:1909  */
 
 	int ival;
 	float fval;

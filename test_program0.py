@@ -1,4 +1,2 @@
-eggs = 45
-girl = "dementia"
-if a > b:
-	m = 40
+if True:
+    a = 5

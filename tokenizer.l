@@ -1,13 +1,14 @@
 %{
     #include <bits/stdc++.h>
     using namespace std;
-    #define YY_DECL extern "C" int yylex()
     #include "pymachi.tab.h"
+    extern "C" int yylex();
+    int line_no = 1;
 %}
 
 %%
 		/*--------newline, spaces, intendation --------*/
-\n 	            					return EOL;
+\n 	            					{	++line_no; return EOL;}
 [ ]+            					;
 \t 									return INDENTTOK;
 
@@ -85,7 +86,7 @@ nor									return LOGICNOROP;
 xor									return LOGICXOROP;
 in 									return INTOK;
 True								return TRUEOP;
-False								return FALSEOP
+False								return FALSEOP;
 
 
 		/**/
