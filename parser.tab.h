@@ -30,8 +30,8 @@
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
-#ifndef YY_YY_OHMACHI_TAB_H_INCLUDED
-# define YY_YY_OHMACHI_TAB_H_INCLUDED
+#ifndef YY_YY_PARSER_TAB_H_INCLUDED
+# define YY_YY_PARSER_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -46,9 +46,19 @@ extern int yydebug;
   enum yytokentype
   {
     INT = 258,
-    FLOAT = 259,
+    DECIMAL = 259,
     STRING = 260,
-    NSTRING = 261
+    IDENTIFIER = 261,
+    INDENTTOK = 262,
+    OUTDENTOP = 263,
+    IFTOK = 264,
+    ELIFTOK = 265,
+    ELSETOK = 266,
+    WHILETOK = 267,
+    PLUSOP = 268,
+    COMMENTOP = 269,
+    COLONOP = 270,
+    ASSIGNMENTOP = 271
   };
 #endif
 
@@ -57,14 +67,13 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 11 "ohmachi.y" /* yacc.c:1909  */
+#line 12 "parser.y" /* yacc.c:1909  */
 
 	int ival;
 	float fval;
 	char *sval;
-	char *nval;
 
-#line 68 "ohmachi.tab.h" /* yacc.c:1909  */
+#line 77 "parser.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -77,4 +86,4 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-#endif /* !YY_YY_OHMACHI_TAB_H_INCLUDED  */
+#endif /* !YY_YY_PARSER_TAB_H_INCLUDED  */
