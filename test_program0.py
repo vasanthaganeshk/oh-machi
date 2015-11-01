@@ -4,6 +4,7 @@ sbaf = "lsdkjaf" + 'jfdsa' + 34 + 272
 # hello world
 fhak = tr
 j = iu
+(345 ** 394875) ** 34 + (-83274 + 23) << 32 >> 23
 
 # ksdjhf ksdajhf
 
@@ -22,3 +23,8 @@ if "vasa":
 if "Mojo jojo takes over the earth":
     d = "my heart will explode seeing this"
     e = "I will become the king of Belize"
+if they:
+    "I am the one who knocks"
+
+if 23**45:
+    var = boo

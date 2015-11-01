@@ -1,3 +1,3 @@
-bison -d parser.y
+bison -r all parser.y
 flex tokenizer.l
-g++ lex.yy.c parser.tab.c -std=c++14 -lfl -o pymachi
+g++ lex.yy.c parser.tab.c -std=c++14 -lfl -o pymirchi

@@ -20,16 +20,17 @@
 %token <sval> STRING
 %token IDENTIFIER
 
-%token INDENTTOK;
-%token OUTDENTOP;
-%token IFTOK;
-%token ELIFTOK;
-%token ELSETOK;
-%token WHILETOK;
-%token PLUSOP;
-%token COMMENTOP;
-%token COLONOP;
-%token ASSIGNMENTOP;
+%token INDENTTOK
+%token IF
+%token COLON
+%token OBRACE
+%token EBRACE
+%right ASSIGNMENT
+%left LESSTHAN GREATERTHAN DOUBLEEQUAL NOTEQUAL LESSTHOREQ GREATTHOREQ 
+%left LEFTSHIFT RIGHTSHIFT
+%left PLUS MINUS
+%left STAR DIVISION
+%right POWER
 
 %%
 template:
@@ -42,16 +43,12 @@ typelines:
 	;
 
 typeline:
-	assignment
-	| block COLONOP blockstmt
-	;
-
-assignment:
-	IDENTIFIER ASSIGNMENTOP expression
+	expression
+	| block COLON blockstmt
 	;
 
 block:
-	IFTOK expression
+	IF expression
 	;
 
 blockstmt:
@@ -60,7 +57,21 @@ blockstmt:
 	;
 
 expression:
-	expression PLUSOP expression
+	IDENTIFIER ASSIGNMENT expression
+	| OBRACE expression EBRACE
+	| expression POWER expression
+	| expression STAR expression
+	| expression DIVISION expression
+	| expression PLUS expression
+	| expression MINUS expression
+	| expression LEFTSHIFT expression
+	| expression RIGHTSHIFT expression
+	| expression LESSTHAN expression
+	| expression GREATERTHAN expression
+	| expression DOUBLEEQUAL expression
+	| expression NOTEQUAL expression
+	| expression LESSTHOREQ expression
+	| expression GREATTHOREQ expression
 	| IDENTIFIER
 	| INT
 	| STRING

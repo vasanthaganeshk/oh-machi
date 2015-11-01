@@ -50,15 +50,24 @@ extern int yydebug;
     STRING = 260,
     IDENTIFIER = 261,
     INDENTTOK = 262,
-    OUTDENTOP = 263,
-    IFTOK = 264,
-    ELIFTOK = 265,
-    ELSETOK = 266,
-    WHILETOK = 267,
-    PLUSOP = 268,
-    COMMENTOP = 269,
-    COLONOP = 270,
-    ASSIGNMENTOP = 271
+    IF = 263,
+    COLON = 264,
+    OBRACE = 265,
+    EBRACE = 266,
+    ASSIGNMENT = 267,
+    LESSTHAN = 268,
+    GREATERTHAN = 269,
+    DOUBLEEQUAL = 270,
+    NOTEQUAL = 271,
+    LESSTHOREQ = 272,
+    GREATTHOREQ = 273,
+    LEFTSHIFT = 274,
+    RIGHTSHIFT = 275,
+    PLUS = 276,
+    MINUS = 277,
+    STAR = 278,
+    DIVISION = 279,
+    POWER = 280
   };
 #endif
 
@@ -73,7 +82,7 @@ union YYSTYPE
 	float fval;
 	char *sval;
 
-#line 77 "parser.tab.h" /* yacc.c:1909  */
+#line 86 "parser.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;
