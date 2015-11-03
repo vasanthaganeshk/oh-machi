@@ -25,6 +25,23 @@ if "Mojo jojo takes over the earth":
     e = "I will become the king of Belize"
 if they:
     "I am the one who knocks"
+    if the:
+        pass
 
-if 23**45:
+if 3:
     var = boo
+if True:
+    pass
+
+a = -12
+a = ~a
+a = a ^ a
+a >> b
+
+a | b %qwer
+
+if a not in b:
+    pass
+
+if b in range(45):
+    pass

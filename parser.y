@@ -22,15 +22,26 @@
 
 %token INDENTTOK
 %token IF
+%token PASS
 %token COLON
 %token OBRACE
 %token EBRACE
+%token RANGE
+
 %right ASSIGNMENT
-%left LESSTHAN GREATERTHAN DOUBLEEQUAL NOTEQUAL LESSTHOREQ GREATTHOREQ 
+%left LAMBDA
+%left OR
+%left AND
+%left NOT
+%left IN NOTIN IS ISNOT LESSTHAN GREATERTHAN DOUBLEEQUAL NOTEQUAL LESSTHOREQ GREATTHOREQ
+%left BITWISEOR
+%left BITWISEXOR
+%left BITWISEAND
 %left LEFTSHIFT RIGHTSHIFT
 %left PLUS MINUS
-%left STAR DIVISION
+%left STAR DIVISION FLOOR REMAINDER
 %right POWER
+%left BITWISEINV
 
 %%
 template:
@@ -45,6 +56,7 @@ typelines:
 typeline:
 	expression
 	| block COLON blockstmt
+	| PASS
 	;
 
 block:
@@ -59,23 +71,43 @@ blockstmt:
 expression:
 	IDENTIFIER ASSIGNMENT expression
 	| OBRACE expression EBRACE
+	| BITWISEINV expression
 	| expression POWER expression
 	| expression STAR expression
 	| expression DIVISION expression
+	| expression FLOOR expression
+	| expression REMAINDER expression
 	| expression PLUS expression
 	| expression MINUS expression
 	| expression LEFTSHIFT expression
 	| expression RIGHTSHIFT expression
+	| expression BITWISEAND expression
+	| expression BITWISEXOR expression
+	| expression BITWISEOR expression
+	| expression IN iterable
+	| expression NOTIN iterable
+	| expression IS expression
+	| expression ISNOT expression
 	| expression LESSTHAN expression
 	| expression GREATERTHAN expression
 	| expression DOUBLEEQUAL expression
 	| expression NOTEQUAL expression
 	| expression LESSTHOREQ expression
 	| expression GREATTHOREQ expression
+	| NOT expression
+	| expression AND expression
+	| expression OR expression
 	| IDENTIFIER
 	| INT
 	| STRING
 	| DECIMAL
+	;
+
+
+		/*---------Iterables---------*/
+iterable:
+	IDENTIFIER
+	| RANGE OBRACE expression EBRACE
 	;
 %%
 

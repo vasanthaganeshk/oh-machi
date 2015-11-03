@@ -51,23 +51,39 @@ extern int yydebug;
     IDENTIFIER = 261,
     INDENTTOK = 262,
     IF = 263,
-    COLON = 264,
-    OBRACE = 265,
-    EBRACE = 266,
-    ASSIGNMENT = 267,
-    LESSTHAN = 268,
-    GREATERTHAN = 269,
-    DOUBLEEQUAL = 270,
-    NOTEQUAL = 271,
-    LESSTHOREQ = 272,
-    GREATTHOREQ = 273,
-    LEFTSHIFT = 274,
-    RIGHTSHIFT = 275,
-    PLUS = 276,
-    MINUS = 277,
-    STAR = 278,
-    DIVISION = 279,
-    POWER = 280
+    PASS = 264,
+    COLON = 265,
+    OBRACE = 266,
+    EBRACE = 267,
+    RANGE = 268,
+    ASSIGNMENT = 269,
+    LAMBDA = 270,
+    OR = 271,
+    AND = 272,
+    NOT = 273,
+    IN = 274,
+    NOTIN = 275,
+    IS = 276,
+    ISNOT = 277,
+    LESSTHAN = 278,
+    GREATERTHAN = 279,
+    DOUBLEEQUAL = 280,
+    NOTEQUAL = 281,
+    LESSTHOREQ = 282,
+    GREATTHOREQ = 283,
+    BITWISEOR = 284,
+    BITWISEXOR = 285,
+    BITWISEAND = 286,
+    LEFTSHIFT = 287,
+    RIGHTSHIFT = 288,
+    PLUS = 289,
+    MINUS = 290,
+    STAR = 291,
+    DIVISION = 292,
+    FLOOR = 293,
+    REMAINDER = 294,
+    POWER = 295,
+    BITWISEINV = 296
   };
 #endif
 
@@ -82,7 +98,7 @@ union YYSTYPE
 	float fval;
 	char *sval;
 
-#line 86 "parser.tab.h" /* yacc.c:1909  */
+#line 102 "parser.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;
