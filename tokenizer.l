@@ -1,5 +1,5 @@
 /*
-Yacc parser for Pymirchi. 
+Flex lexer for Pymirchi. 
 Copyright (C) 2015 Vasantha Ganesh K <vasanthaganesh.k@tuta.io>.
 
 This file is part of Pymirchi.
