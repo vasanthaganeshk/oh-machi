@@ -18,6 +18,7 @@ pass 								return PASS;
 
 		/*--------if-elif-else--------*/
 if 									return IF;
+def									return DEF;
 
 		/*--------Operators--------*/
 \( 									return OBRACE;
@@ -52,6 +53,9 @@ lambda 								return LAMBDA;
 \>=									return GREATTHOREQ;
 =									return ASSIGNMENT;
 
+
+		/*--------Symbols--------*/
+\,									return COMMA;
 		/*--------Iterables--------*/
 range								return RANGE;
 
@@ -61,4 +65,5 @@ range								return RANGE;
 \"[_a-zA-z0-9 ]*\"			        {   yylval.sval = yytext; return STRING;}
 \'[_a-zA-z0-9 ]*\'				    {   yylval.sval = yytext; return STRING;}
 [_a-zA-Z]?[_a-zA-z0-9]*             {   yylval.sval = yytext; return IDENTIFIER;}
+.									;
 %%

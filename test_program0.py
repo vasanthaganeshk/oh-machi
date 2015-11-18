@@ -2,9 +2,10 @@ a = 100
 basd = "baskjdf" + "lajsdflkas"
 sbaf = "lsdkjaf" + 'jfdsa' + 34 + 272
 # hello world
+
 fhak = tr
 j = iu
-(345 ** 394875) ** 34 + (-83274 + 23) << 32 >> 23
+(345 ** 394875) ** 34 + (-83274 + 23) << 32 << 23
 
 # ksdjhf ksdajhf
 
@@ -32,16 +33,22 @@ if 3:
     var = boo
 if True:
     pass
-
 a = -12
 a = ~a
 a = a ^ a
-a >> b
+a<< b+c*d (3 ** 10.0)
 
-a | b %qwer
+a | b % qwer
 
 if a not in b:
     pass
 
 if b in range(45):
     pass
+
+def vasa(aasdf, asd):
+    if vasa():
+        pass
+    if True:
+        def bash(sda, asdf):
+            print
