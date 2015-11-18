@@ -62,7 +62,7 @@
 
 
 /* Copy the first part of user declarations.  */
-#line 1 "parser.y" /* yacc.c:339  */
+#line 21 "parser.y" /* yacc.c:339  */
 
 	#include <bits/stdc++.h>
 	using namespace std;
@@ -157,7 +157,7 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 12 "parser.y" /* yacc.c:355  */
+#line 32 "parser.y" /* yacc.c:355  */
 
 	int ival;
 	float fval;
@@ -481,12 +481,12 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    49,    49,    53,    54,    58,    59,    60,    65,    66,
-      71,    72,    73,    78,    79,    80,    85,    86,    91,    92,
-      93,    94,    95,    96,    97,    98,    99,   100,   101,   102,
-     103,   104,   105,   106,   107,   108,   109,   110,   111,   112,
+       0,    69,    69,    73,    74,    78,    79,    80,    85,    86,
+      91,    92,    93,    98,    99,   100,   105,   106,   111,   112,
      113,   114,   115,   116,   117,   118,   119,   120,   121,   122,
-     123,   128,   129
+     123,   124,   125,   126,   127,   128,   129,   130,   131,   132,
+     133,   134,   135,   136,   137,   138,   139,   140,   141,   142,
+     143,   148,   149
 };
 #endif
 
@@ -1580,7 +1580,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 131 "parser.y" /* yacc.c:1906  */
+#line 151 "parser.y" /* yacc.c:1906  */
 
 
 int main(int argc, char *argv[])
